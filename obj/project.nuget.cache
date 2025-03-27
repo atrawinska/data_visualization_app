@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vFixu6USe84=",
+  "dgSpecHash": "OAu5FdFH58Q=",
   "success": true,
   "projectFilePath": "/Users/mikolajkluba/Desktop/Avalonia_Projects/Assignment_3/data_visualization_app/charts_app.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,7 @@
     "/Users/mikolajkluba/.nuget/packages/avalonia.win32/11.2.1/avalonia.win32.11.2.1.nupkg.sha512",
     "/Users/mikolajkluba/.nuget/packages/avalonia.x11/11.2.1/avalonia.x11.11.2.1.nupkg.sha512",
     "/Users/mikolajkluba/.nuget/packages/communitytoolkit.mvvm/8.2.1/communitytoolkit.mvvm.8.2.1.nupkg.sha512",
+    "/Users/mikolajkluba/.nuget/packages/csvhelper/33.0.1/csvhelper.33.0.1.nupkg.sha512",
     "/Users/mikolajkluba/.nuget/packages/harfbuzzsharp/7.3.0.2/harfbuzzsharp.7.3.0.2.nupkg.sha512",
     "/Users/mikolajkluba/.nuget/packages/harfbuzzsharp.nativeassets.linux/7.3.0.2/harfbuzzsharp.nativeassets.linux.7.3.0.2.nupkg.sha512",
     "/Users/mikolajkluba/.nuget/packages/harfbuzzsharp.nativeassets.macos/7.3.0.2/harfbuzzsharp.nativeassets.macos.7.3.0.2.nupkg.sha512",
