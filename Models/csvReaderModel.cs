@@ -4,12 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Diagnostics;
+
 
 namespace DataVisualizationApp;
 
-public static class CsvReaderHelper
+public class CsvReaderHelper
 {
-    string filePath = "global_food_wastage_dataset.csv"; // file has to be added to the project folder
+    string filePath = "global_food_wastage_dataset.csv"; // file has to be added to the project
 
     public static List<FoodWasteData> ReadCsv(string filePath)
     {
@@ -21,7 +23,12 @@ public static class CsvReaderHelper
             TrimOptions = TrimOptions.Trim
         }))
         {
-            return new List<FoodWasteData>(csv.GetRecords<FoodWasteData>());
+            var records = new List<FoodWasteData>(csv.GetRecords<FoodWasteData>());
+        
+            // Print the number of records loaded
+            Debug.WriteLine($"Loaded {records.Count} records from CSV.");
+            
+            return records;
         }
     }
 }

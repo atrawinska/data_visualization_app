@@ -23,7 +23,11 @@
 /Users/mikolajkluba/.nuget/packages/avalonia.win32/11.2.1/lib/net8.0/Avalonia.Win32.dll
 /Users/mikolajkluba/.nuget/packages/avalonia.x11/11.2.1/lib/net8.0/Avalonia.X11.dll
 /Users/mikolajkluba/.nuget/packages/communitytoolkit.mvvm/8.2.1/lib/net6.0/CommunityToolkit.Mvvm.dll
-/Users/mikolajkluba/.nuget/packages/harfbuzzsharp/7.3.0.2/lib/net6.0/HarfBuzzSharp.dll
+/Users/mikolajkluba/.nuget/packages/csvhelper/33.0.1/lib/net8.0/CsvHelper.dll
+/Users/mikolajkluba/.nuget/packages/harfbuzzsharp/7.3.0.3/lib/net6.0/HarfBuzzSharp.dll
+/Users/mikolajkluba/.nuget/packages/livechartscore/2.0.0-rc5.4/lib/net8.0/LiveChartsCore.dll
+/Users/mikolajkluba/.nuget/packages/livechartscore.skiasharpview.avalonia/2.0.0-rc5.4/lib/net8.0/LiveChartsCore.SkiaSharpView.Avalonia.dll
+/Users/mikolajkluba/.nuget/packages/livechartscore.skiasharpview/2.0.0-rc5.4/lib/net8.0/LiveChartsCore.SkiaSharpView.dll
 /Users/mikolajkluba/.nuget/packages/microcom.runtime/0.11.0/lib/net5.0/MicroCom.Runtime.dll
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/9.0.1/ref/net9.0/Microsoft.CSharp.dll
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/9.0.1/ref/net9.0/Microsoft.VisualBasic.Core.dll
@@ -32,7 +36,8 @@
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/9.0.1/ref/net9.0/Microsoft.Win32.Registry.dll
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/9.0.1/ref/net9.0/mscorlib.dll
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/9.0.1/ref/net9.0/netstandard.dll
-/Users/mikolajkluba/.nuget/packages/skiasharp/2.88.8/lib/net6.0/SkiaSharp.dll
+/Users/mikolajkluba/.nuget/packages/skiasharp/2.88.9/lib/net6.0/SkiaSharp.dll
+/Users/mikolajkluba/.nuget/packages/skiasharp.harfbuzz/2.88.9/lib/net6.0/SkiaSharp.HarfBuzz.dll
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/9.0.1/ref/net9.0/System.AppContext.dll
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/9.0.1/ref/net9.0/System.Buffers.dll
 /usr/local/share/dotnet/packs/Microsoft.NETCore.App.Ref/9.0.1/ref/net9.0/System.Collections.Concurrent.dll
