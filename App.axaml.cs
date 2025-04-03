@@ -4,11 +4,10 @@ using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using System.Linq;
 using Avalonia.Markup.Xaml;
-using charts_app.ViewModels;
-using charts_app.Views;
-using charts_app.Services;
+using DataVisualizationApp.ViewModels;
+using DataVisualizationApp.Views;
 
-namespace charts_app;
+namespace DataVisualizationApp;
 
 public partial class App : Application
 {
@@ -26,7 +25,7 @@ public partial class App : Application
             DisableAvaloniaDataAnnotationValidation();
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainWindowViewModel(new ChartService()), // I edited this one!!!!!!!
+                DataContext = new MainWindowViewModel(),
             };
         }
 

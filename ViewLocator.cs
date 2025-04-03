@@ -1,9 +1,9 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using charts_app.ViewModels;
+using DataVisualizationApp.ViewModels;
 
-namespace charts_app;
+namespace DataVisualizationApp;
 
 public class ViewLocator : IDataTemplate
 {

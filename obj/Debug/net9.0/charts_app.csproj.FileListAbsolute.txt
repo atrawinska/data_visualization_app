@@ -71,6 +71,3 @@
 /Users/mikolajkluba/Desktop/Avalonia_Projects/Assignment_3/data_visualization_app/obj/Debug/net9.0/charts_app.csproj.Up2Date
 /Users/mikolajkluba/Desktop/Avalonia_Projects/Assignment_3/data_visualization_app/obj/Debug/net9.0/charts_app.genruntimeconfig.cache
 /Users/mikolajkluba/Desktop/Avalonia_Projects/Assignment_3/data_visualization_app/obj/Debug/net9.0/ref/charts_app.dll
-/Users/mikolajkluba/Desktop/Avalonia_Projects/Assignment_3/data_visualization_app/obj/Debug/net9.0/charts_app.dll
-/Users/mikolajkluba/Desktop/Avalonia_Projects/Assignment_3/data_visualization_app/obj/Debug/net9.0/refint/charts_app.dll
-/Users/mikolajkluba/Desktop/Avalonia_Projects/Assignment_3/data_visualization_app/obj/Debug/net9.0/charts_app.pdb

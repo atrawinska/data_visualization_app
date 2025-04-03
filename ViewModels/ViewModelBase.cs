@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace charts_app.ViewModels;
+namespace DataVisualizationApp.ViewModels;
 
 public class ViewModelBase : ObservableObject
 {
