@@ -40,6 +40,7 @@
     />
         <Button 
     Content="Australia"
+    Command="{Binding ClickCommand}"
         Background="LightGreen"
         BorderBrush="Green"
         BorderThickness="2"
@@ -76,9 +77,24 @@
 </WrapPanel>
 
 
+        <!-- An ItemsControl with its ItemsPanel set to a UniformGrid -->
+        <ItemsControl ItemsSource="{Binding Graphs}"  Grid.Column="1">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <!-- Adjust Rows and Columns as needed -->
+                    <UniformGrid/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="Border">
+                    <!-- Customize the graph square. For demonstration, we use a Border with a TextBlock -->
+                    <Border Background="LightGray" BorderBrush="Black" BorderThickness="2" Margin="5">
+                        <TextBlock Text="gRAPH" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
 
-
-<ContentControl Grid.Column="1" Content="{Binding Dashboard}"/>
 
 
     </Grid>

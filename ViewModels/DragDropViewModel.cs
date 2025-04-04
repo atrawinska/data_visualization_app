@@ -13,8 +13,11 @@ using SkiaSharp;
 using System.Collections.Generic;
 using DataVisualizationApp.Models;
 using Avalonia.Controls;
-
-
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
+using Avalonia.Controls;
+using CommunityToolkit.Mvvm.Input;
 namespace DataVisualizationApp.ViewModels;
 
 public partial class DragDropViewModel : ObservableObject

@@ -8,17 +8,6 @@
         x:DataType="vm:DragDropViewModel"
         >
 
-<UniformGrid Margin="5,15,5,5" >
-    <lvc:CartesianChart Series="{Binding Series}" YAxes="{Binding YAxes}" />
-    <lvc:CartesianChart Series="{Binding Series}" YAxes="{Binding YAxes}" />
-    <lvc:CartesianChart Series="{Binding Series}" YAxes="{Binding YAxes}" />
-    <lvc:CartesianChart Series="{Binding Series}" YAxes="{Binding YAxes}" />
-    <lvc:CartesianChart Series="{Binding Series}" YAxes="{Binding YAxes}" />
-    <lvc:CartesianChart Series="{Binding Series}" YAxes="{Binding YAxes}" />
-    <lvc:CartesianChart Series="{Binding Series}" YAxes="{Binding YAxes}" />
-
-</UniformGrid>
-
 
 
 

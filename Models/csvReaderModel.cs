@@ -23,3 +23,15 @@ public class DataLoader<T> where T : class
         }
     }
 }
+
+
+// <UniformGrid Margin="5,15,5,5" Name="DashboardContainer">
+//     <lvc:CartesianChart Series="{Binding Series}" YAxes="{Binding YAxes}" />
+//     <lvc:CartesianChart Series="{Binding Series}" YAxes="{Binding YAxes}" />
+//     <lvc:CartesianChart Series="{Binding Series}" YAxes="{Binding YAxes}" />
+//     <lvc:CartesianChart Series="{Binding Series}" YAxes="{Binding YAxes}" />
+//     <lvc:CartesianChart Series="{Binding Series}" YAxes="{Binding YAxes}" />
+//     <lvc:CartesianChart Series="{Binding Series}" YAxes="{Binding YAxes}" />
+//     <lvc:CartesianChart Series="{Binding Series}" YAxes="{Binding YAxes}" />
+
+// </UniformGrid>

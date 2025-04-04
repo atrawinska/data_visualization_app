@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -13,44 +13,29 @@ using SkiaSharp;
 using System.Collections.Generic;
 using DataVisualizationApp.Models;
 using Avalonia.Controls;
-using DataVisualizationApp.Views;
+using Avalonia.Controls;
+using Avalonia.Media;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.Input;
 
-
 namespace DataVisualizationApp.ViewModels;
 
-public partial class MainWindowViewModel : ViewModelBase
+public partial class CreateGraphViewModel : ObservableObject
 {
+    public Border AddGraph(){
 
+        Border graphContainer = new Border
+            {
+                Width = 300,
+                Height = 200,
+                Background = Brushes.LightGray,
+                BorderBrush = Brushes.Black,
+                
 
-    [ObservableProperty]
-    private UserControl dashboard;
-
-    public ObservableCollection<Border> Graphs { get; set; } = new ObservableCollection<Border>();
-
-
-
-
-
-    public MainWindowViewModel()
-    {
-     
-        // DragDropViewModel ddViewModel = new();
-        // Dashboard = new DragDropView { DataContext = ddViewModel };
-
-
-
-       
-    }
-
-   [RelayCommand]
-    private void Click(){
-        CreateGraphViewModel graph = new();
-        Graphs.Add(graph.AddGraph());
-
+            };
+            return graphContainer;
     }
 }
