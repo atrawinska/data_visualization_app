@@ -30,7 +30,7 @@ public partial class MainWindowViewModel : ViewModelBase
     [ObservableProperty]
     private UserControl dashboard;
 
-    public ObservableCollection<Border> Graphs { get; set; } = new ObservableCollection<Border>();
+    public ObservableCollection<Button> Graphs { get; set; } = new ObservableCollection<Button>();
 
 
     WasteByCategoryQueryRunner wasteByCategoryQueryRunner = new();
@@ -83,4 +83,6 @@ public partial class MainWindowViewModel : ViewModelBase
         Graphs.Add(graph.AddGraph(wasteByCategoryQueryRunner.CreateGraph()));
 
     }
+
+
 }

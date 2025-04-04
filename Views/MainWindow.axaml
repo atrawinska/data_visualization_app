@@ -89,11 +89,14 @@
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
-                <DataTemplate x:DataType="Border">
+                <DataTemplate x:DataType="Button">
                     <!-- Customize the graph square. For demonstration, we use a Border with a TextBlock -->
-                    <Border Background="LightGray" BorderBrush="Black" BorderThickness="2" Margin="5">
-                        <TextBlock Text="gRAPH" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
+                    <Button Background="LightGray" BorderBrush="Black" BorderThickness="2" Margin="5">
+
+
+                        
+                    </Button>
+                   
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

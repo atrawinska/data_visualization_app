@@ -27,19 +27,19 @@ namespace DataVisualizationApp.ViewModels;
 
 public partial class CreateGraphViewModel : ObservableObject
 {
-    public Border AddGraph(CartesianChart graph){
+    public Button AddGraph(CartesianChart graph){
 
-        Border graphContainer = new Border
-            {
-                Width = 300,
-                Height = 200,
-                Background = Brushes.LightGray,
-                BorderBrush = Brushes.Black,
-                
-                
+        var graphContainer = new Button(){
 
-            };
-            graphContainer.Child = graph;
+                   Content = graph,
+        HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch,
+        VerticalAlignment = Avalonia.Layout.VerticalAlignment.Stretch,
+
+
+
+        };
+           
+    
             return graphContainer;
     }
 
