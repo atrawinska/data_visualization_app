@@ -29,18 +29,19 @@
 
 
 <WrapPanel Grid.Column="0"  Margin="5, 15, 5, 5" HorizontalAlignment="Center"  >
+  <TextBlock Text="Global waste in relation to:" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     <Button 
-    Content="Africa"
+    Content="GDP"
         Background="LightBlue"
         BorderBrush="Blue"
-        
+           Command="{Binding GDPClickCommand}"
         BorderThickness="2"
         CornerRadius="10"
           Margin="5"
     />
         <Button 
-    Content="Australia"
-    Command="{Binding ClickCommand}"
+    Content="Time"
+    Command="{Binding TimeClickCommand}"
         Background="LightGreen"
         BorderBrush="Green"
         BorderThickness="2"
@@ -49,7 +50,8 @@
     />
 
                 <Button 
-    Content="USA"
+    Content="Country"
+        Command="{Binding CountryClickCommand}"
         Background="LightGreen"
         BorderBrush="Green"
         BorderThickness="2"
@@ -57,7 +59,8 @@
           Margin="5"
     />
             <Button 
-    Content="Europe"
+    Content="Capita"
+        Command="{Binding CapitaClickCommand}"
         Background="LightPink"
         BorderBrush="Red"
         BorderThickness="2"

@@ -33,6 +33,14 @@ public partial class MainWindowViewModel : ViewModelBase
     public ObservableCollection<Border> Graphs { get; set; } = new ObservableCollection<Border>();
 
 
+    WasteByCategoryQueryRunner wasteByCategoryQueryRunner = new();
+    WasteByCountryQueryRunner wasteByCountryQueryRunner = new();
+    WasteOverTimeQueryRunner  wasteOverTimeQueryRunner = new();
+    WasteVsGDPQueryRunner wasteVsGDPQueryRunner = new();
+
+
+
+
 
 
 
@@ -48,9 +56,31 @@ public partial class MainWindowViewModel : ViewModelBase
     }
 
    [RelayCommand]
-    private void Click(){
+    private void GDPClick(){
         CreateGraphViewModel graph = new();
-        Graphs.Add(graph.AddGraph());
+        Graphs.Add(graph.AddGraph(wasteVsGDPQueryRunner.CreateGraph()));
+
+    }
+
+       [RelayCommand]
+    private void TimeClick(){
+        CreateGraphViewModel graph = new();
+        Graphs.Add(graph.AddGraph(wasteOverTimeQueryRunner.CreateGraph()));
+
+    }
+
+    
+       [RelayCommand]
+    private void CountryClick(){
+        CreateGraphViewModel graph = new();
+        Graphs.Add(graph.AddGraph(wasteByCountryQueryRunner.CreateGraph()));
+
+    }
+    
+       [RelayCommand]
+    private void CapitaClick(){
+        CreateGraphViewModel graph = new();
+        Graphs.Add(graph.AddGraph(wasteByCategoryQueryRunner.CreateGraph()));
 
     }
 }

@@ -10,6 +10,8 @@ using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
 using LiveChartsCore.Themes;
 using SkiaSharp;
+using LiveChartsCore.SkiaSharpView.Avalonia;
+
 using System.Collections.Generic;
 using DataVisualizationApp.Models;
 using Avalonia.Controls;
@@ -25,7 +27,7 @@ namespace DataVisualizationApp.ViewModels;
 
 public partial class CreateGraphViewModel : ObservableObject
 {
-    public Border AddGraph(){
+    public Border AddGraph(CartesianChart graph){
 
         Border graphContainer = new Border
             {
@@ -34,8 +36,18 @@ public partial class CreateGraphViewModel : ObservableObject
                 Background = Brushes.LightGray,
                 BorderBrush = Brushes.Black,
                 
+                
 
             };
+            graphContainer.Child = graph;
             return graphContainer;
     }
+
+
+
+
+
+
+
+
 }
