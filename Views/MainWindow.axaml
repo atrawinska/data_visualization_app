@@ -16,13 +16,77 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <Grid>
-        <Grid.RowDefinitions>
-        <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
 
-        <lvc:CartesianChart Series="{Binding Series}"
-                            YAxes="{Binding YAxes}">
-        </lvc:CartesianChart>
+
+<Grid Background="White">
+        <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="20*"/>  <!-- Left Panel (20% of width) -->
+        <ColumnDefinition Width="80*"/>  <!-- Main content (80% of width) -->
+    </Grid.ColumnDefinitions>
+
+    
+
+
+
+<WrapPanel Grid.Column="0"  Margin="5, 15, 5, 5" HorizontalAlignment="Center"  >
+    <Button 
+    Content="Africa"
+        Background="LightBlue"
+        BorderBrush="Blue"
+        
+        BorderThickness="2"
+        CornerRadius="10"
+          Margin="5"
+    />
+        <Button 
+    Content="Australia"
+        Background="LightGreen"
+        BorderBrush="Green"
+        BorderThickness="2"
+        CornerRadius="10"
+          Margin="5"
+    />
+
+                <Button 
+    Content="USA"
+        Background="LightGreen"
+        BorderBrush="Green"
+        BorderThickness="2"
+        CornerRadius="10"
+          Margin="5"
+    />
+            <Button 
+    Content="Europe"
+        Background="LightPink"
+        BorderBrush="Red"
+        BorderThickness="2"
+        CornerRadius="10"
+        Margin="5"
+    />
+
+        <Button 
+    Content="Africa"
+        Background="LightBlue"
+        BorderBrush="Blue"
+        BorderThickness="2"
+        CornerRadius="10"
+          Margin="5"
+    />
+
+</WrapPanel>
+
+
+
+
+<ContentControl Grid.Column="1" Content="{Binding Dashboard}"/>
+
+
     </Grid>
+
+
+
+
+
+
+
 </Window>
