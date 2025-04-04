@@ -27,6 +27,15 @@ namespace DataVisualizationApp.ViewModels;
 
 public partial class CreateGraphViewModel : ObservableObject
 {
+    MainWindowViewModel mwvm = new();
+
+
+    public CreateGraphViewModel(MainWindowViewModel _mwvm){
+        mwvm = _mwvm;
+    }
+
+
+
     public Button AddGraph(CartesianChart graph){
 
         var graphContainer = new Button(){
@@ -38,10 +47,24 @@ public partial class CreateGraphViewModel : ObservableObject
 
 
         };
+        graphContainer.Click += Button_Click;
            
     
             return graphContainer;
     }
+
+    private void Button_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+{
+    // Code to run when the button is clicked
+    
+    if (sender is Button clickedButton && clickedButton.Content is CartesianChart chart)
+    {
+  
+        
+    }
+
+}
+
 
 
 

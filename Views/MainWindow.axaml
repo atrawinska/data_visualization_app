@@ -8,7 +8,7 @@
         x:Class="DataVisualizationApp.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="DataVisualizationApp">
+        Title="Data Visualization">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -91,7 +91,7 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate x:DataType="Button">
                     <!-- Customize the graph square. For demonstration, we use a Border with a TextBlock -->
-                    <Button Background="LightGray" BorderBrush="Black" BorderThickness="2" Margin="5">
+                    <Button Background="LightGray" BorderBrush="Black" BorderThickness="2" Margin="5" >
 
 
                         

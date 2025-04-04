@@ -44,6 +44,8 @@ public partial class MainWindowViewModel : ViewModelBase
 
 
 
+
+
     public MainWindowViewModel()
     {
      
@@ -57,14 +59,14 @@ public partial class MainWindowViewModel : ViewModelBase
 
    [RelayCommand]
     private void GDPClick(){
-        CreateGraphViewModel graph = new();
+        CreateGraphViewModel graph = new(this);
         Graphs.Add(graph.AddGraph(wasteVsGDPQueryRunner.CreateGraph()));
 
     }
 
        [RelayCommand]
     private void TimeClick(){
-        CreateGraphViewModel graph = new();
+        CreateGraphViewModel graph = new(this);
         Graphs.Add(graph.AddGraph(wasteOverTimeQueryRunner.CreateGraph()));
 
     }
@@ -72,17 +74,16 @@ public partial class MainWindowViewModel : ViewModelBase
     
        [RelayCommand]
     private void CountryClick(){
-        CreateGraphViewModel graph = new();
+        CreateGraphViewModel graph = new(this);
         Graphs.Add(graph.AddGraph(wasteByCountryQueryRunner.CreateGraph()));
 
     }
     
        [RelayCommand]
     private void CapitaClick(){
-        CreateGraphViewModel graph = new();
+        CreateGraphViewModel graph = new(this);
         Graphs.Add(graph.AddGraph(wasteByCategoryQueryRunner.CreateGraph()));
 
     }
-
 
 }
