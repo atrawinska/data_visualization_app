@@ -2,9 +2,9 @@ using Avalonia.Controls;
 namespace DataVisualizationApp.Views;
 
 
-public partial class DragDropView : UserControl
+public partial class FullGraphView : UserControl
 {
-    public DragDropView()
+    public FullGraphView()
     {
         InitializeComponent();
     }

@@ -1,24 +1,13 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
-using LiveChartsCore;
-using LiveChartsCore.Kernel.Events;
-using LiveChartsCore.Defaults;
-using LiveChartsCore.Measure;
-using LiveChartsCore.SkiaSharpView;
-using LiveChartsCore.SkiaSharpView.Painting;
-using LiveChartsCore.Themes;
-using SkiaSharp;
-using System.Collections.Generic;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using DataVisualizationApp.Models;
 using Avalonia.Controls;
-using DataVisualizationApp.Views;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using CommunityToolkit.Mvvm.ComponentModel;
-using Avalonia.Controls;
 using CommunityToolkit.Mvvm.Input;
+using Avalonia.Diagnostics;
+using LiveChartsCore.SkiaSharpView.Avalonia;
+using DataVisualizationApp.Views;
+using LiveChartsCore;
+
 
 
 namespace DataVisualizationApp.ViewModels;
@@ -29,6 +18,10 @@ public partial class MainWindowViewModel : ViewModelBase
 
     [ObservableProperty]
     private UserControl dashboard;
+    private CreateGraphViewModel graph;
+
+    [ObservableProperty]
+    private UserControl currentView;
 
     public ObservableCollection<Button> Graphs { get; set; } = new ObservableCollection<Button>();
 
@@ -51,37 +44,53 @@ public partial class MainWindowViewModel : ViewModelBase
      
         // DragDropViewModel ddViewModel = new();
         // Dashboard = new DragDropView { DataContext = ddViewModel };
+       graph = new(this);
+       BoardView();
 
 
 
        
     }
 
+    public void FullGraphView(CartesianChart chart)
+    {
+        if(chart==null)return; 
+
+      // fullView = FullViewView();
+       CurrentView = new FullGraphView{ DataContext = new FullGraphViewModel(this, chart)};
+      
+
+
+    }
+    public void BoardView(){
+         CurrentView = new DashboardView { DataContext = new DashboardViewModel(this) };
+      
+    }
+
    [RelayCommand]
     private void GDPClick(){
-        CreateGraphViewModel graph = new(this);
+       // CreateGraphViewModel graph = new(this);
         Graphs.Add(graph.AddGraph(wasteVsGDPQueryRunner.CreateGraph()));
 
     }
-
-       [RelayCommand]
-    private void TimeClick(){
-        CreateGraphViewModel graph = new(this);
-        Graphs.Add(graph.AddGraph(wasteOverTimeQueryRunner.CreateGraph()));
-
-    }
+[RelayCommand]
+public void TimeClick()
+{
+    CartesianChart chart = wasteOverTimeQueryRunner.CreateGraph(); 
+    Graphs.Add(graph.AddGraph(chart)); 
+}
 
     
        [RelayCommand]
     private void CountryClick(){
-        CreateGraphViewModel graph = new(this);
+       // CreateGraphViewModel graph = new(this);
         Graphs.Add(graph.AddGraph(wasteByCountryQueryRunner.CreateGraph()));
 
     }
     
        [RelayCommand]
     private void CapitaClick(){
-        CreateGraphViewModel graph = new(this);
+       // CreateGraphViewModel graph = new(this);
         Graphs.Add(graph.AddGraph(wasteByCategoryQueryRunner.CreateGraph()));
 
     }

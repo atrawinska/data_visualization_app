@@ -24,7 +24,10 @@ build_property.EnableCodeStyleSeverity =
 [C:/Users/Agnie/Downloads/application/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/Agnie/Downloads/application/Views/DragDropView.axaml]
+[C:/Users/Agnie/Downloads/application/Views/DashboardView copy.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/Agnie/Downloads/application/Views/FullGraphView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [C:/Users/Agnie/Downloads/application/Views/MainWindow.axaml]

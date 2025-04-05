@@ -81,27 +81,9 @@
 
 
         <!-- An ItemsControl with its ItemsPanel set to a UniformGrid -->
-        <ItemsControl ItemsSource="{Binding Graphs}"  Grid.Column="1">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <!-- Adjust Rows and Columns as needed -->
-                    <UniformGrid/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate x:DataType="Button">
-                    <!-- Customize the graph square. For demonstration, we use a Border with a TextBlock -->
-                    <Button Background="LightGray" BorderBrush="Black" BorderThickness="2" Margin="5" >
 
 
-                        
-                    </Button>
-                   
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-
-
+    <ContentControl Content="{Binding CurrentView}" Grid.Column="1"/>
 
     </Grid>
 

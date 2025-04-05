@@ -1,0 +1,35 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:DataVisualizationApp.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
+        x:Class="DataVisualizationApp.Views.DashboardView"
+        x:DataType="vm:DashboardViewModel"
+        >
+
+
+        <ItemsControl ItemsSource="{Binding Mwvc.Graphs}"  Grid.Column="1">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <!-- Adjust Rows and Columns as needed -->
+                    <UniformGrid/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="Button">
+                    <!-- Customize the graph square. For demonstration, we use a Border with a TextBlock -->
+                    <Button Background="LightGray" BorderBrush="Black" BorderThickness="2" Margin="5" >
+                       
+                    </Button>
+                   
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        
+
+
+
+
+
+</UserControl>

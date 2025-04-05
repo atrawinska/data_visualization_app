@@ -22,12 +22,13 @@ using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.Input;
+using System.Diagnostics;
 
 namespace DataVisualizationApp.ViewModels;
 
 public partial class CreateGraphViewModel : ObservableObject
 {
-    MainWindowViewModel mwvm = new();
+    private readonly MainWindowViewModel mwvm;
 
 
     public CreateGraphViewModel(MainWindowViewModel _mwvm){
@@ -59,6 +60,9 @@ public partial class CreateGraphViewModel : ObservableObject
     
     if (sender is Button clickedButton && clickedButton.Content is CartesianChart chart)
     {
+
+        mwvm.FullGraphView(chart);
+        Debug.WriteLine("Graph clicked");
   
         
     }
