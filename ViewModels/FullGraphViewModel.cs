@@ -1,29 +1,9 @@
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
-using LiveChartsCore;
-using LiveChartsCore.Kernel.Events;
-using LiveChartsCore.Defaults;
-using LiveChartsCore.Measure;
-using LiveChartsCore.SkiaSharpView;
-using LiveChartsCore.SkiaSharpView.Painting;
-using LiveChartsCore.Themes;
-using SkiaSharp;
-using System.Collections.Generic;
-using DataVisualizationApp.Models;
-using Avalonia.Controls;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.Input;
 using DataVisualizationApp.Views;
 using LiveChartsCore.SkiaSharpView.Avalonia;
-using Avalonia.Media.TextFormatting.Unicode;
 using System.Diagnostics;
-using Avalonia;
-using LiveChartsCore.VisualElements;
 namespace DataVisualizationApp.ViewModels;
 
 
@@ -45,7 +25,7 @@ public FullGraphViewModel(MainWindowViewModel _mwvc, CartesianChart chart){
 
     [RelayCommand]
     private void DeleteGraph(){
-        
+         ClickedChart.Child = null;        
          mwvc.BoardView();
        //  CreateGraphViewModel buttonChart = new(mwvc);
         // var removedChart = buttonChart.AddGraph(clickedChart.Child);
@@ -55,6 +35,7 @@ public FullGraphViewModel(MainWindowViewModel _mwvc, CartesianChart chart){
     
     [RelayCommand]
     private void Close(){
+         ClickedChart.Child = null;
         mwvc.BoardView();
     }
 

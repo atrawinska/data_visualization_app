@@ -1,27 +1,8 @@
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
-using LiveChartsCore;
-using LiveChartsCore.Kernel.Events;
-using LiveChartsCore.Defaults;
-using LiveChartsCore.Measure;
-using LiveChartsCore.SkiaSharpView;
-using LiveChartsCore.SkiaSharpView.Painting;
-using LiveChartsCore.Themes;
-using SkiaSharp;
-using LiveChartsCore.SkiaSharpView.Avalonia;
 
-using System.Collections.Generic;
-using DataVisualizationApp.Models;
-using Avalonia.Controls;
-using Avalonia.Controls;
-using Avalonia.Media;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
+using LiveChartsCore.SkiaSharpView.Avalonia;
 using Avalonia.Controls;
-using CommunityToolkit.Mvvm.Input;
+
 using System.Diagnostics;
 
 namespace DataVisualizationApp.ViewModels;
@@ -60,7 +41,7 @@ public partial class CreateGraphViewModel : ObservableObject
     
     if (sender is Button clickedButton && clickedButton.Content is CartesianChart chart)
     {
-
+        mwvm.Graphs.Remove(clickedButton);
         mwvm.FullGraphView(chart);
         Debug.WriteLine("Graph clicked");
   
