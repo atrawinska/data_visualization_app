@@ -39,6 +39,15 @@
         <DataTemplate DataType="{x:Type vm:TimeQueryViewModel}"  >
         
                 <Grid RowDefinitions="Auto,*" >
+                    <WrapPanel>
+
+                                        <TextBox Grid.Row="0" Watermark="Other"
+         Text="{Binding UserInput, Mode=TwoWay}"
+         BorderThickness="2"
+        CornerRadius="10"
+         Height="32"
+                Margin="5"
+        />
 
                  <ItemsControl ItemsSource="{Binding CountryButtons}" >
                     <ItemsControl.ItemsPanel>
@@ -47,6 +56,8 @@
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
+
+           </WrapPanel>
 
                 <lvc:CartesianChart
                     Grid.Row="1"

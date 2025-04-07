@@ -33,7 +33,7 @@ public class CountryProvider
                 .Select(d => d.Country)
                 .Where(c => !string.IsNullOrWhiteSpace(c))
                 .Distinct()
-                .Take(10) 
+                .Take(7) 
                 .OrderBy(c => c)
                 .ToList();
         }
