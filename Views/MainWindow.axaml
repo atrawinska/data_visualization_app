@@ -106,7 +106,8 @@ Margin="5"
 
 
         <Button 
-    Content="Africa"
+    Content="Capitaa"
+     Command="{Binding CapitaClickCommand}"
         Background="LightBlue"
         BorderBrush="Blue"
         BorderThickness="2"

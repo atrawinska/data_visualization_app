@@ -54,31 +54,50 @@ public partial class CapitaQueryViewModel : GraphViewModel
         }
     }
 
-    private void MakeChart()
+private void MakeChart()
+{
+    if (string.IsNullOrEmpty(SelectedCountry) || string.IsNullOrEmpty(SelectedYear))
+        return;
+
+    if (!int.TryParse(SelectedYear, out int parsedYear))
+        return;
+
+    var baseQuery = new CapitaQueryRunner();
+    baseQuery.Run(SelectedCountry, parsedYear);
+
+    Title = $"Avg. Waste Per Capita in {SelectedCountry} by Category ({SelectedYear})";
+
+    var ordered = baseQuery.wasteByCategory.OrderBy(kv => kv.Key).ToList();
+
+    Series = new ISeries[]
     {
-        if (string.IsNullOrEmpty(SelectedCountry) || string.IsNullOrEmpty(SelectedYear))
-            return;
+        new LineSeries<double>
+        {
+            Values = ordered.Select(kv => kv.Value).ToArray(),
+            GeometrySize = 8,
+            Name = "Waste Per Capita",
+            Fill = null
+        }
+    };
 
-        if (!int.TryParse(SelectedYear, out int parsedYear))
-            return;
+    XAxes = new Axis[]
+    {
+        new Axis
+        {
+            Name = "Category",
+            Labels = ordered.Select(kv => kv.Key).ToArray()
+        }
+    };
 
-        var baseQuery = new CapitaQueryRunner();
-        baseQuery.Run(SelectedCountry, parsedYear);
-
-        Title = $"Avg. Waste Per Capita in {SelectedCountry} by Category ({SelectedYear})";
-
-        Series = baseQuery.wasteByCategory
-            .Select(kvp => new PieSeries<double>
-            {
-                Name = kvp.Key,
-                Values = new[] { kvp.Value },
-                DataLabelsSize = 14,
-                DataLabelsPosition = LiveChartsCore.Measure.PolarLabelsPosition.Middle,
-                DataLabelsFormatter = point => $"{point.Coordinate.PrimaryValue:N1} kg"
-            })
-            .Cast<ISeries>()
-            .ToArray();
-    }
+    YAxes = new Axis[]
+    {
+        new Axis
+        {
+            Name = "Waste (kg)",
+            Labeler = val => val.ToString("N1")
+        }
+    };
+}
 
     [RelayCommand]
     private void SelectCountry(string country)
