@@ -120,4 +120,15 @@ public partial class MainWindowViewModel : ViewModelBase
         BoardView();
     }
 
+        [RelayCommand]
+    private void CategoryClick()
+    {
+        GraphViewModel graph = new CategoryQueryViewModel(this);
+        Graphs.Add(graph);
+        BoardView();
+    }
+
+
+
+
 }

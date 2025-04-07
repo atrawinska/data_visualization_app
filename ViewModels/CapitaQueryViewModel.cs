@@ -12,7 +12,9 @@ using System.Diagnostics;
 using System.Collections.ObjectModel;
 using Avalonia.Controls;
 using Avalonia.Media;
-using Avalonia;
+
+using LiveChartsCore.SkiaSharpView.Painting;
+using SkiaSharp;
 
 namespace DataVisualizationApp.ViewModels;
 
@@ -71,32 +73,23 @@ private void MakeChart()
 
     Series = new ISeries[]
     {
-        new LineSeries<double>
+        new RowSeries<double>
         {
             Values = ordered.Select(kv => kv.Value).ToArray(),
-            GeometrySize = 8,
             Name = "Waste Per Capita",
-            Fill = null
+            Fill = new SolidColorPaint(SKColors.Pink)
         }
     };
 
-    XAxes = new Axis[]
-    {
-        new Axis
-        {
-            Name = "Category",
-            Labels = ordered.Select(kv => kv.Key).ToArray()
-        }
-    };
+XAxes = new Axis[]
+{
+    new Axis { Name = "Waste (kg)", Labeler = val => val.ToString("N1") }
+};
 
-    YAxes = new Axis[]
-    {
-        new Axis
-        {
-            Name = "Waste (kg)",
-            Labeler = val => val.ToString("N1")
-        }
-    };
+YAxes = new Axis[]
+{
+    new Axis { Labels = ordered.Select(kv => kv.Key).ToArray(), Name = "Category" }
+};
 }
 
     [RelayCommand]

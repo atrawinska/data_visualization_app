@@ -33,7 +33,7 @@ public partial class CategoryQueryViewModel : GraphViewModel
             Values = baseQuery.wastePerCategory,
             Name = "Total Waste",
             Stroke = null,
-            Fill = new SolidColorPaint(SKColors.Green),
+            Fill = new SolidColorPaint(SKColors.LightGreen),
             
         }
     };

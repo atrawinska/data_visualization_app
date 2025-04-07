@@ -80,7 +80,7 @@ Margin="5"
     />
                 <Button 
     Content="Category"
-        Command="{Binding CapitaClickCommand}"
+        Command="{Binding CategoryClickCommand}"
         Background="LightPink"
         BorderBrush="Red"
         BorderThickness="2"
@@ -106,7 +106,7 @@ Margin="5"
 
 
         <Button 
-    Content="Capitaa"
+    Content="Capita"
      Command="{Binding CapitaClickCommand}"
         Background="LightBlue"
         BorderBrush="Blue"
