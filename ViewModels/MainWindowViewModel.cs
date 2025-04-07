@@ -7,6 +7,8 @@ using Avalonia.Diagnostics;
 using LiveChartsCore.SkiaSharpView.Avalonia;
 using DataVisualizationApp.Views;
 using LiveChartsCore;
+using System.Diagnostics;
+using System.Linq;
 
 
 
@@ -23,13 +25,13 @@ public partial class MainWindowViewModel : ViewModelBase
     [ObservableProperty]
     private UserControl currentView;
 
-    public ObservableCollection<Button> Graphs { get; set; } = new ObservableCollection<Button>();
+    public ObservableCollection<GraphViewModel> Graphs { get; set; } = new ObservableCollection<GraphViewModel>();
 
 
     WasteByCategoryQueryRunner wasteByCategoryQueryRunner = new();
     WasteByCountryQueryRunner wasteByCountryQueryRunner = new();
-    WasteOverTimeQueryRunner  wasteOverTimeQueryRunner = new();
-    WasteVsGDPQueryRunner wasteVsGDPQueryRunner = new();
+    WasteOverTimeQueryRunner wasteOverTimeQueryRunner = new();
+    //GDPQueryViewModel wasteVsGDPQueryRunner = new();
 
 
 
@@ -41,57 +43,79 @@ public partial class MainWindowViewModel : ViewModelBase
 
     public MainWindowViewModel()
     {
-     
+
         // DragDropViewModel ddViewModel = new();
         // Dashboard = new DragDropView { DataContext = ddViewModel };
-       graph = new(this);
-       BoardView();
+        graph = new(this);
+        BoardView();
 
 
 
-       
+
     }
 
-    public void FullGraphView(CartesianChart chart)
+    public void FullGraphView(GraphViewModel chart)
     {
-        if(chart==null)return; 
+        if (chart == null) return;
 
-      // fullView = FullViewView();
-       CurrentView = new FullGraphView{ DataContext = new FullGraphViewModel(this, chart)};
-      
+        CurrentView = new FullGraphView
+        {
+            DataContext = new FullGraphViewModel(this, chart)
+        };
+
+
+    }
+    public void BoardView()
+    {
+        Debug.WriteLine("BoardView() called!");
+        CurrentView = new DashboardView { DataContext = new DashboardViewModel(this) };
+
+    }
+
+    [RelayCommand]
+    private void GDPClick()
+    {
+        GraphViewModel graph = new GDPQueryViewModel(this);
+        Graphs.Add(graph);
+        Debug.WriteLine("Graph added to the list");
+        Debug.WriteLine("XAxes: " + string.Join(", ", graph.XAxes.Select(x => x.Name)));
+        Debug.WriteLine("YAxes: " + string.Join(", ", graph.YAxes.Select(y => y.Name)));
+        Debug.WriteLine("Series: " + string.Join(", ", graph.Series.Select(s => s.GetType().Name)));
+        foreach (var k in Graphs)
+        {
+            Debug.WriteLine(k.Title);
+
+        }
+
+        Debug.WriteLine($"Graph {graph.Title} added. Series count: {graph.Series?.Length}, XAxes: {graph.XAxes?.Length}, YAxes: {graph.YAxes?.Length}");
+
+
+        BoardView();
+
 
 
     }
-    public void BoardView(){
-         CurrentView = new DashboardView { DataContext = new DashboardViewModel(this) };
-      
+    [RelayCommand]
+    public void TimeClick()
+    {
+        // CartesianChart chart = wasteOverTimeQueryRunner.CreateGraph(); 
+        // Graphs.Add(graph.AddGraph(chart)); 
     }
 
-   [RelayCommand]
-    private void GDPClick(){
-       // CreateGraphViewModel graph = new(this);
-        Graphs.Add(graph.AddGraph(wasteVsGDPQueryRunner.CreateGraph()));
+
+    [RelayCommand]
+    private void CountryClick()
+    {
+        // CreateGraphViewModel graph = new(this);
+        // Graphs.Add(graph.AddGraph(wasteByCountryQueryRunner.CreateGraph()));
 
     }
-[RelayCommand]
-public void TimeClick()
-{
-    CartesianChart chart = wasteOverTimeQueryRunner.CreateGraph(); 
-    Graphs.Add(graph.AddGraph(chart)); 
-}
 
-    
-       [RelayCommand]
-    private void CountryClick(){
-       // CreateGraphViewModel graph = new(this);
-        Graphs.Add(graph.AddGraph(wasteByCountryQueryRunner.CreateGraph()));
-
-    }
-    
-       [RelayCommand]
-    private void CapitaClick(){
-       // CreateGraphViewModel graph = new(this);
-        Graphs.Add(graph.AddGraph(wasteByCategoryQueryRunner.CreateGraph()));
+    [RelayCommand]
+    private void CapitaClick()
+    {
+        // CreateGraphViewModel graph = new(this);
+        // Graphs.Add(graph.AddGraph(wasteByCategoryQueryRunner.CreateGraph()));
 
     }
 

@@ -34,42 +34,4 @@ public class WasteVsGDPQueryRunner : IGraph
         economicLoss = wasteVsGDP.Select(r => r.EconomicLoss).ToList();
     }
 
-
-   public  CartesianChart CreateGraph()
-        {
-            Run();
-            ISeries[] series= new ISeries[]
-            {
-                new LineSeries<double>
-                {
-                    Values=wastePerCapita
-                },
-                new ColumnSeries<double>
-                {
-                    Values=economicLoss
-                }
-            };
-                        var chart = new CartesianChart
-            {
-                Series = series,
-                XAxes = new Axis[]
-                {
-                    new Axis
-                    {
-                        Name = "Waste Per Capita",
-                        Labeler = value => value.ToString("N1")
-                    }
-                },
-                YAxes = new Axis[]
-                {
-                    new Axis
-                    {
-                        Name = "Economic Loss",
-                        Labeler = value => value.ToString("N1")
-                    }
-                }
-            };
-
-            return chart;
-        }
 }

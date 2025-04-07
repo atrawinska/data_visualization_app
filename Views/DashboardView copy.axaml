@@ -9,19 +9,30 @@
         >
 
 
-        <ItemsControl ItemsSource="{Binding Mwvc.Graphs}"  Grid.Column="1">
+        <ItemsControl ItemsSource="{Binding Mwvm.Graphs}" >
+
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <!-- Adjust Rows and Columns as needed -->
-                    <UniformGrid/>
+                    <UniformGrid />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
+
             <ItemsControl.ItemTemplate>
-                <DataTemplate x:DataType="Button">
+                <DataTemplate x:DataType="vm:GraphViewModel">
                     <!-- Customize the graph square. For demonstration, we use a Border with a TextBlock -->
-                    <Button Background="LightGray" BorderBrush="Black" BorderThickness="2" Margin="5" >
-                       
-                    </Button>
+                <Button BorderThickness="2" Margin="5"  Command="{Binding ExpandCommand}"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch" 
+                
+                
+                  Background="White"   >
+                    <lvc:CartesianChart
+                        Series="{Binding Series}"
+                        XAxes="{Binding XAxes}"
+                        YAxes="{Binding YAxes}">
+                    </lvc:CartesianChart>
+                </Button>
                    
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
