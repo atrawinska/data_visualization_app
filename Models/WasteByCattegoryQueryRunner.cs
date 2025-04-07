@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 
 namespace DataVisualizationApp.Models;
-public class WasteByCategoryQueryRunner : IGraph
+public class WasteByCategoryQueryRunner
 {
     public List<double> wastePerCategory = new();
     public List<string> categories = new();
@@ -33,44 +33,8 @@ public class WasteByCategoryQueryRunner : IGraph
         wastePerCategory = categoryWaste.Select(r => r.TotalWaste).ToList();
     }
 
-    public CartesianChart CreateGraph()
-{
-    Run();
 
-    var series = new ISeries[]
-    {
-        new ColumnSeries<double>
-        {
-            Values = wastePerCategory,
-            Name = "Total Waste",
-            Stroke = null,
-            Fill = new SolidColorPaint(SKColors.Green),
-        }
-    };
 
-    var chart = new CartesianChart
-    {
-        Series = series,
-        XAxes = new Axis[]
-        {
-            new Axis
-            {
-                Name = "Food Category",
-                Labels = categories // <-- Set categories as X-Axis labels
-            }
-        },
-        YAxes = new Axis[]
-        {
-            new Axis
-            {
-                Name = "Total Waste (tons)",
-                Labeler = value => value.ToString("N0")
-            }
-        }
-    };
-
-    return chart;
-}
 
 }
 

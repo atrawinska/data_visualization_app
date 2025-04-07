@@ -20,6 +20,8 @@
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate x:DataType="vm:GraphViewModel">
+                
+             
                     <!-- Customize the graph square. For demonstration, we use a Border with a TextBlock -->
                 <Button BorderThickness="2" Margin="5"  Command="{Binding ExpandCommand}"
                 HorizontalAlignment="Stretch"
@@ -35,6 +37,8 @@
 
                     </lvc:CartesianChart>
                 </Button>
+
+               
                    
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

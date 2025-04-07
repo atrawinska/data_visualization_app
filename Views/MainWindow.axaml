@@ -59,7 +59,7 @@
           Margin="5"
     />
             <Button 
-    Content="Capita"
+    Content="Category"
         Command="{Binding CapitaClickCommand}"
         Background="LightPink"
         BorderBrush="Red"

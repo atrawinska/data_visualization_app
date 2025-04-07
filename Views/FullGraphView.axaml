@@ -1,63 +1,91 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:vm="using:DataVisualizationApp.ViewModels"
-             x:Class="DataVisualizationApp.Views.FullGraphView"
+             xmlns:vm="clr-namespace:DataVisualizationApp.ViewModels"
              xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
+             x:Class="DataVisualizationApp.Views.FullGraphView"
              x:DataType="vm:FullGraphViewModel">
 
 
-<Grid Background="White">
-    <Grid.RowDefinitions>
-        <RowDefinition Height="5*"/>  <!-- Left Panel (20% of width) -->
-        <RowDefinition Height="90*"/>  <!-- Main content (80% of width) -->
-        <RowDefinition Height="5*"/> 
-    </Grid.RowDefinitions>
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="90*" />
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
 
-                  <!-- Top Button -->
-            <Button Content="Close"
-                    Command="{Binding CloseCommand}"
-                    HorizontalAlignment="Stretch"
-                    Margin="5"
-                    Foreground="Black"
-                    Grid.Row="0"
-                    Height="40"/>
+        <!-- Top Button -->
+        <Button Content="Close"
+                Command="{Binding CloseCommand}"
+              
+                Margin="5"
+                     Background="White"
+        BorderBrush="LightGray"
+        BorderThickness="2"
+        CornerRadius="10"
+      
+                Foreground="LightGray"
+               
+                Height="30" 
+                Grid.Row="0" />
 
-
-   <ContentControl Content="{Binding ClickedChart}" Grid.Row="1">
-    <ContentControl.ContentTemplate>
-        <DataTemplate x:DataType="vm:GraphViewModel" >
-            <Border Padding="10"
-            Background="White"
-                            HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-            
-            >
-                    <lvc:CartesianChart
-                        AnimationsSpeed="00:00:00.500"
-                       
-                        EasingFunction="{Binding Easing}"
-                        ZoomMode="Both"
-                        Series="{Binding Series}"
-                        XAxes="{Binding XAxes}"
-                        YAxes="{Binding YAxes}">
-                        
-                    </lvc:CartesianChart>
-            </Border>
-        </DataTemplate>
-    </ContentControl.ContentTemplate>
-</ContentControl>
-            
-
+        <!-- This will auto-apply correct DataTemplate based on ViewModel type -->
+  <ContentControl Grid.Row="1" Content="{Binding ClickedChart}">
+     
   
-            <!-- Bottom Button -->
-            <Button Content="Remove"
-                    Command="{Binding DeleteGraphCommand}"
-                    HorizontalAlignment="Stretch"
-                     Grid.Row="2"
-                     Foreground="Black"
-                    Margin="5"
-                    Height="40"/>
-</Grid>
-   
+    
+    <ContentControl.DataTemplates>
+        
+        <!-- Template for TimeQueryViewModel -->
+        <DataTemplate DataType="{x:Type vm:TimeQueryViewModel}"  >
+        
+                <Grid RowDefinitions="Auto,*" >
 
+                 <ItemsControl ItemsSource="{Binding CountryButtons}" >
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Background="White" Margin="5"  Grid.Row="0"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+
+                <lvc:CartesianChart
+                    Grid.Row="1"
+                    Series="{Binding Series}"
+                    XAxes="{Binding XAxes}"
+                    YAxes="{Binding YAxes}"
+                    
+                    Background="White" />
+            </Grid>
+        </DataTemplate>
+
+        <!-- Default fallback for all GraphViewModels -->
+        <DataTemplate DataType="{x:Type vm:GraphViewModel}">
+
+            <lvc:CartesianChart
+                AnimationsSpeed="00:00:00.500"
+                EasingFunction="{Binding Easing}"
+                ZoomMode="Both"
+                Series="{Binding Series}"
+                XAxes="{Binding XAxes}"
+                YAxes="{Binding YAxes}" />
+
+        </DataTemplate>
+
+    </ContentControl.DataTemplates>
+</ContentControl>
+
+        <!-- Bottom Button -->
+        <Button Content="Remove"
+                Command="{Binding DeleteGraphCommand}"
+                
+                Grid.Row="2"
+                Background="White"
+        BorderBrush="LightGray"
+        BorderThickness="2"
+        CornerRadius="10"
+                Margin="5"
+                Foreground="LightGray"
+               
+                Height="30" />
+    </Grid>
 </UserControl>

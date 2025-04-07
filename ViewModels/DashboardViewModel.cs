@@ -27,12 +27,7 @@ public partial class DashboardViewModel : ObservableObject
     }
 
     
-    // [RelayCommand]
-    // private void Expand(GraphViewModel graph){
-    //   Mwvc.FullGraphView(graph);
-    // }
-    
-
+ 
 
 
     
