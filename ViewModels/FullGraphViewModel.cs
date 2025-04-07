@@ -29,6 +29,7 @@ public FullGraphViewModel(MainWindowViewModel _mwvc, GraphViewModel chart){
         
          mwvc.BoardView();
          mwvc.Graphs.Remove(ClickedChart);
+         Debug.WriteLine("Chart removed");
 
     }
 

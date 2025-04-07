@@ -33,6 +33,10 @@
             
             >
                     <lvc:CartesianChart
+                        AnimationsSpeed="00:00:00.500"
+                       
+                        EasingFunction="{Binding Easing}"
+                        ZoomMode="Both"
                         Series="{Binding Series}"
                         XAxes="{Binding XAxes}"
                         YAxes="{Binding YAxes}">

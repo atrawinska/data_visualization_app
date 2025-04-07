@@ -26,6 +26,8 @@ public abstract partial class GraphViewModel : ObservableObject
 
     public ICommand ExpandCommand { get; }
 
+    public Func<float, float> Easing { get; set; } = time => time * time; 
+
     protected GraphViewModel(MainWindowViewModel parent)
     {
         ExpandCommand = new RelayCommand(() => parent.FullGraphView(this));

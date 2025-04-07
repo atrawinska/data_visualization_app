@@ -32,48 +32,7 @@ public class WasteOverTimeQueryRunner : IGraph
     }
 
 
-    
-public CartesianChart CreateGraph()
-{
-    Run("USA");
 
-    // Ensure the data is aligned
-    var waste = wasteOverTime["USA"];
-    var yearLabels = years.Select(y => y.ToString()).ToArray();
-
-    var series = new ISeries[]
-    {
-        new LineSeries<double>
-        {
-            Values = waste,
-            Fill = null,
-            GeometrySize = 8
-        }
-    };
-
-    var chart = new CartesianChart
-    {
-        Series = series,
-        XAxes = new Axis[]
-        {
-            new Axis
-            {
-                Name = "Year",
-                Labels = yearLabels
-            }
-        },
-        YAxes = new Axis[]
-        {
-            new Axis
-            {
-                Name = "Total Waste (tons)",
-                Labeler = value => value.ToString("N0")
-            }
-        }
-    };
-
-    return chart;
-}
 
 }
 

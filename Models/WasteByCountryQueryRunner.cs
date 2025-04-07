@@ -48,44 +48,6 @@ public class WasteByCountryQueryRunner : IGraph
 
 
     
-public CartesianChart CreateGraph()
-{
-    Run(5);
-
-    var series = new ISeries[]
-    {
-        new ColumnSeries<double>
-        {
-            Values = totalWastePerCountry,
-            Name = "Total Waste",
-            Stroke = null,
-            Fill = new SolidColorPaint(SKColors.Blue),
-        }
-    };
-
-    var chart = new CartesianChart
-    {
-        Series = series,
-        XAxes = new Axis[]
-        {
-            new Axis
-            {
-                Name = "Country",
-                Labels = countryNames // <-- Set country names as X-Axis labels
-            }
-        },
-        YAxes = new Axis[]
-        {
-            new Axis
-            {
-                Name = "Total Waste (tons)",
-                Labeler = value => value.ToString("N0")
-            }
-        }
-    };
-
-    return chart;
-}
 
 }
 

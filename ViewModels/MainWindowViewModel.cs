@@ -30,7 +30,7 @@ public partial class MainWindowViewModel : ViewModelBase
 
     WasteByCategoryQueryRunner wasteByCategoryQueryRunner = new();
     WasteByCountryQueryRunner wasteByCountryQueryRunner = new();
-    WasteOverTimeQueryRunner wasteOverTimeQueryRunner = new();
+    //WasteOverTimeQueryRunner wasteOverTimeQueryRunner = new();
     //GDPQueryViewModel wasteVsGDPQueryRunner = new();
 
 
@@ -98,25 +98,26 @@ public partial class MainWindowViewModel : ViewModelBase
     [RelayCommand]
     public void TimeClick()
     {
-        // CartesianChart chart = wasteOverTimeQueryRunner.CreateGraph(); 
-        // Graphs.Add(graph.AddGraph(chart)); 
+        GraphViewModel graph = new TimeQueryViewModel(this);
+        Graphs.Add(graph);
+        BoardView();
     }
 
 
     [RelayCommand]
     private void CountryClick()
     {
-        // CreateGraphViewModel graph = new(this);
-        // Graphs.Add(graph.AddGraph(wasteByCountryQueryRunner.CreateGraph()));
-
+        GraphViewModel graph = new CountryQueryViewModel(this);
+        Graphs.Add(graph);
+        BoardView();
     }
 
     [RelayCommand]
     private void CapitaClick()
     {
-        // CreateGraphViewModel graph = new(this);
-        // Graphs.Add(graph.AddGraph(wasteByCategoryQueryRunner.CreateGraph()));
-
+        GraphViewModel graph = new CategoryQueryViewModel(this);
+        Graphs.Add(graph);
+        BoardView();
     }
 
 }
