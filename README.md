@@ -6,7 +6,7 @@ We included a few different charts — some of them can also be modified.
 
 ---
 
-## 🧭 Use Guide
+## Use Guide
 
 1. Open the project (the CSV file is already included, so no additional setup is required).
 2. Add a chart you want from the side panel by clicking one of the colorful buttons.
@@ -22,7 +22,7 @@ We included a few different charts — some of them can also be modified.
 
 ---
 
-## 📋 Details
+## Details
 
 The application includes various **bar** and **line charts**.  
 The code also includes dynamic queries:
@@ -31,7 +31,7 @@ The code also includes dynamic queries:
 
 ---
 
-## ✅ Basic Requirements
+## Basic Requirements
 
 - Use the following technologies: **C#**, **Avalonia**, **CommunityToolkit**, **LiveCharts2**, and **CsvHelper** ✔️  
 - Follow the **MVVM** (Model-View-ViewModel) architecture ✔️  
@@ -50,13 +50,13 @@ The code also includes dynamic queries:
 
 ---
 
-## 🌟 Additional Feature
+## Additional Feature
 
 - Dynamic queries based on user input
 
 ---
 
-## 🚧 Potential Improvements
+## Potential Improvements
 
 - No comments/documentation yet — sorry! 🥲  
 - A more SOLID-based architecture (currently optimized for this dataset and chart types)  
@@ -66,7 +66,7 @@ The code also includes dynamic queries:
 
 ---
 
-## 🖼️ Project Prototype / Visualization
+## Project Prototype / Visualization
 
 <img width="840" alt="image" src="https://github.com/user-attachments/assets/8fce8b17-6fe0-427d-acb3-dbec8dad34cc" />  
 <img width="840" alt="image" src="https://github.com/user-attachments/assets/21f4c7a7-3c4e-45ee-b530-89f03c1607eb" />
