@@ -44,7 +44,7 @@ Potential improvements:
 - resizing/drag and drop features
 - undo/redo feature
 
-
+#**Project prototype/Visualisation:**
 <img width="840" alt="image" src="https://github.com/user-attachments/assets/8fce8b17-6fe0-427d-acb3-dbec8dad34cc" />
 <img width="840" alt="image" src="https://github.com/user-attachments/assets/21f4c7a7-3c4e-45ee-b530-89f03c1607eb" />
 
