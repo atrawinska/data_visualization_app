@@ -58,7 +58,7 @@ The code also includes dynamic queries:
 
 ## Potential Improvements
 
-- No comments/documentation yet — sorry! 🥲  
+- No comments/documentation yet — sorry! 🥲 No time:( also there is some redundant code left
 - A more SOLID-based architecture (currently optimized for this dataset and chart types)  
 - Support for more dynamic chart options  
 - Resizing and drag-and-drop layout  
