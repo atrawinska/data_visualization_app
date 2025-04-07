@@ -15,6 +15,9 @@
              to set the actual DataContext for runtime, set the DataContext property in code (look at MainWindow.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
+    
+
+
 
 
 
@@ -27,9 +30,30 @@
     
 
 
+  <Grid Grid.Column="0" Margin="5, 5, 5, 5">
 
-<WrapPanel Grid.Column="0"  Margin="5, 15, 5, 5" HorizontalAlignment="Center"  >
-  <TextBlock Text="Global waste in relation to:" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
+<Border
+
+Margin="5"
+       Background="#e3e3e3"
+        BorderBrush="#545454"
+        BorderThickness="2"
+        CornerRadius="10"
+        
+   
+                    Height="33"
+
+>
+  <TextBlock Grid.Row="0"  Text="Global waste in relation to:" HorizontalAlignment="Center" Foreground="#545454" VerticalAlignment="Center"/>
+</Border> 
+ <WrapPanel Grid.Row="1"  Margin="5, 5, 5, 5">
+
     <Button 
     Content="GDP"
         Background="LightBlue"
@@ -38,6 +62,9 @@
         BorderThickness="2"
         CornerRadius="10"
           Margin="5"
+                    Height="33"
+          HorizontalContentAlignment="Center"
+        VerticalContentAlignment="Center"
     />
         <Button 
     Content="Time"
@@ -47,6 +74,21 @@
         BorderThickness="2"
         CornerRadius="10"
           Margin="5"
+                    Height="33"
+          HorizontalContentAlignment="Center"
+        VerticalContentAlignment="Center"
+    />
+                <Button 
+    Content="Category"
+        Command="{Binding CapitaClickCommand}"
+        Background="LightPink"
+        BorderBrush="Red"
+        BorderThickness="2"
+        CornerRadius="10"
+        Margin="5"
+                  Height="33"
+          HorizontalContentAlignment="Center"
+        VerticalContentAlignment="Center"
     />
 
                 <Button 
@@ -57,16 +99,11 @@
         BorderThickness="2"
         CornerRadius="10"
           Margin="5"
+                    Height="33"
+          HorizontalContentAlignment="Center"
+        VerticalContentAlignment="Center"
     />
-            <Button 
-    Content="Category"
-        Command="{Binding CapitaClickCommand}"
-        Background="LightPink"
-        BorderBrush="Red"
-        BorderThickness="2"
-        CornerRadius="10"
-        Margin="5"
-    />
+
 
         <Button 
     Content="Africa"
@@ -75,9 +112,19 @@
         BorderThickness="2"
         CornerRadius="10"
           Margin="5"
+          Height="33"
+          HorizontalContentAlignment="Center"
+        VerticalContentAlignment="Center"
+          
     />
 
+    
+
+
+
 </WrapPanel>
+
+  </Grid>
 
 
         <!-- An ItemsControl with its ItemsPanel set to a UniformGrid -->

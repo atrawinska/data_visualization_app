@@ -6,7 +6,7 @@
              x:DataType="vm:FullGraphViewModel">
 
 
-    <Grid Background="White">
+    <Grid Background="White" Margin="5, 7, 5, 5">
         <Grid.RowDefinitions>
             <RowDefinition Height="5*" />
             <RowDefinition Height="90*" />
@@ -16,7 +16,7 @@
         <!-- Top Button -->
         <Button Content="Close"
                 Command="{Binding CloseCommand}"
-              
+                
                 Margin="5"
                      Background="White"
         BorderBrush="LightGray"
@@ -24,8 +24,9 @@
         CornerRadius="10"
       
                 Foreground="LightGray"
-               
-                Height="30" 
+                         Height="33"
+          HorizontalContentAlignment="Center"
+        VerticalContentAlignment="Center"
                 Grid.Row="0" />
 
         <!-- This will auto-apply correct DataTemplate based on ViewModel type -->
@@ -41,21 +42,44 @@
                 <Grid RowDefinitions="Auto,*" >
                     <WrapPanel>
 
-                                        <TextBox Grid.Row="0" Watermark="Other"
+  <TextBox Grid.Row="0" Watermark="Other"
          Text="{Binding UserInput, Mode=TwoWay}"
          BorderThickness="2"
         CornerRadius="10"
-         Height="32"
+        Foreground="SteelBlue"
+        Background="White"
+         BorderBrush="SteelBlue"
+
+          Height="33"
+        HorizontalContentAlignment="Center"
+        VerticalContentAlignment="Center"
                 Margin="5"
         />
 
-                 <ItemsControl ItemsSource="{Binding CountryButtons}" >
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel Background="White" Margin="5"  Grid.Row="0"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
+
+        
+<ItemsControl ItemsSource="{Binding CountryButtons}">
+    <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate>
+            <WrapPanel />
+        </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
+    <ItemsControl.ItemTemplate>
+        <DataTemplate>
+           <Button
+            Content="{Binding Label}"
+            Command="{Binding SelectCommand}"
+            Margin="5"
+            Background="SteelBlue"
+            Foreground="White"
+                      Height="33"
+          HorizontalContentAlignment="Center"
+        VerticalContentAlignment="Center"
+            Padding="5"
+            CornerRadius="10"/>
+        </DataTemplate>
+    </ItemsControl.ItemTemplate>
+</ItemsControl>
 
            </WrapPanel>
 
@@ -67,6 +91,63 @@
                     
                     Background="White" />
             </Grid>
+        </DataTemplate>
+
+        <!-- Template for CapitaQueryViewModel -->
+        <DataTemplate DataType="{x:Type vm:CapitaQueryViewModel}">
+            <StackPanel Margin="10">
+                <WrapPanel>
+                    <ItemsControl ItemsSource="{Binding CountryButtons}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button
+                                    Content="{Binding Label}"
+                                    Command="{Binding SelectCommand}"
+                                    Margin="4"
+                                    Padding="6,2"
+                                    Background="SteelBlue"
+                                    Foreground="White"
+                                    CornerRadius="6"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <ItemsControl ItemsSource="{Binding YearButtons}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button
+                                    Content="{Binding Label}"
+                                    Command="{Binding SelectCommand}"
+                                    Margin="4"
+                                    Padding="6,2"
+                                    Background="LightSalmon"
+                                    Foreground="White"
+                                    CornerRadius="6"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </WrapPanel>
+
+                <!-- Pie Chart -->
+                <lvc:PieChart
+                    Series="{Binding Series}"
+                    LegendPosition="Right"
+              
+                    Background="WhiteSmoke"
+                    Margin="10" />
+            </StackPanel>
         </DataTemplate>
 
         <!-- Default fallback for all GraphViewModels -->
@@ -81,6 +162,7 @@
                 YAxes="{Binding YAxes}" />
 
         </DataTemplate>
+        
 
     </ContentControl.DataTemplates>
 </ContentControl>
@@ -96,7 +178,8 @@
         CornerRadius="10"
                 Margin="5"
                 Foreground="LightGray"
-               
-                Height="30" />
+                         Height="33"
+          HorizontalContentAlignment="Center"
+        VerticalContentAlignment="Center" />
     </Grid>
 </UserControl>

@@ -115,7 +115,7 @@ public partial class MainWindowViewModel : ViewModelBase
     [RelayCommand]
     private void CapitaClick()
     {
-        GraphViewModel graph = new CategoryQueryViewModel(this);
+        GraphViewModel graph = new CapitaQueryViewModel(this);
         Graphs.Add(graph);
         BoardView();
     }

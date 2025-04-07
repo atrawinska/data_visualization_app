@@ -29,63 +29,54 @@ public partial class TimeQueryViewModel : GraphViewModel
     [ObservableProperty]
     private string selectedCountry;
 
+    private bool _buttonsInitialized = false;
+
+
 
     partial void OnUserInputChanged(string value)
     {
-        FilterButtons(value);
-        if(string.IsNullOrEmpty(userInput)){
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            CountryButtons.Clear();
+
             GenerateCountryButtons();
         }
+        else
+        {
+            CountryButtons.Clear();
+            FilterButtons(value);
+        }
+
     }
 
     CountryProvider countryProvider = new();
 
-    public ObservableCollection<Button> CountryButtons { get; } = new();
+    public ObservableCollection<SelectableButtonViewModel> CountryButtons { get; } = new();
+
 
     public TimeQueryViewModel(MainWindowViewModel parent) : base(parent)
     {
+        CountryButtons.Clear();
         MakeChart();
         GenerateCountryButtons();
 
 
 
-    }
 
+    }
 
     public void GenerateCountryButtons()
     {
-
         CountryButtons.Clear();
-
-        var random = new Random();
-        var countries = countryProvider.GetFiveAvailableCountries();
-
-        foreach (var country in countries)
+        foreach (var country in countryProvider.GetFiveAvailableCountries())
         {
-            var button = new Button
-            {
-                Content = country,
-                Foreground = Brushes.White,
-                Background = Brushes.SteelBlue,
-                CornerRadius = new CornerRadius(6),
-                Margin = new Thickness(5),
-
-            };
-
-            // Inline event handler
-            button.Click += (_, _) =>
-            {
-                MakeChart(country);
-                Debug.WriteLine($"Country changed to: {country}");
-
-            };
-
-            CountryButtons.Add(button);
+            CountryButtons.Add(new SelectableButtonViewModel(country, MakeChart));
         }
     }
 
     private void MakeChart(String country = "USA")
     {
+        SelectedCountry = country;
 
         WasteOverTimeQueryRunner baseQuery = new();
         baseQuery.Run(country);
@@ -125,29 +116,23 @@ public partial class TimeQueryViewModel : GraphViewModel
         var matching = countryProvider
             .GetAllAvailableCountries()
             .Where(c => c.StartsWith(input, StringComparison.OrdinalIgnoreCase))
-            ; 
+            ;
 
         foreach (var country in matching)
         {
-            var button = new Button
-            {
-                Content = country,
-                Foreground = Brushes.White,
-                Background = Brushes.SteelBlue,
-                CornerRadius = new CornerRadius(6),
-                Margin = new Thickness(5),
-            };
-
-            button.Click += (_, _) =>
-            {
-                SelectedCountry = country;
-                MakeChart(country);
-            };
-
-            CountryButtons.Add(button);
+            CountryButtons.Add(new SelectableButtonViewModel(country, MakeChart));
         }
+
     }
 
+
+    [RelayCommand]
+    private void SelectCountry(string country)
+    {
+        SelectedCountry = country;
+        MakeChart(country);
+        Debug.WriteLine($"Country changed to: {country}");
+    }
 
 
 
